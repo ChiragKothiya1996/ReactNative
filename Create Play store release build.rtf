@@ -1,14 +1,23 @@
+Create keystore
+
+Suggession:- Make alias as package name but des(-) instead of dot(.)
+
 sudo keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+In above command changed "alias" with "your alias name"
+For Ex:- sudo keytool -genkey -v -keystore my-upload-key.keystore -com-myapp-app my-key-com-myapp-app -keyalg RSA -keysize 2048 -validity 10000
 
-Alias tara package nu namej rakhje but dot ne badle - karje
 
-Next
+
+Then add following 4 line in gradle.properties
+
 MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
-MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
-MYAPP_UPLOAD_STORE_PASSWORD=***
-MYAPP_UPLOAD_KEY_PASSWORD=***
+MYAPP_UPLOAD_KEY_ALIAS=com-myapp-app
+MYAPP_UPLOAD_STORE_PASSWORD=com-myapp-app
+MYAPP_UPLOAD_KEY_PASSWORD=com-myapp-app
 
-Next
+
+
+Then add following in app/build.gradle file
 
 ...
 android {
@@ -34,7 +43,7 @@ android {
 ...
 
 
-Next
+Then open terminal and fire following command
 
 cd android
 ./gradlew bundleRelease
