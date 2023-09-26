@@ -47,3 +47,11 @@ Then open terminal and fire following command
 
 cd android
 ./gradlew bundleRelease
+
+
+
+
+
+./gradlew app:assembleRelease
+./gradlew bundleRelease
+react-native run-android --variant=release
